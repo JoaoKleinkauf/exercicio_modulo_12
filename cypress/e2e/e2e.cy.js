@@ -1,6 +1,7 @@
 /// <reference types="cypress" />
 
 import ProdutoPage from '../support/page_objects/produto.page.js'
+import checkoutPage from '../support/page_objects/checkout.page.js';
 const { faker } = require('@faker-js/faker');
 
 context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
@@ -40,7 +41,7 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
         cy.get('.woocommerce-message > .button').click()
         cy.get('.checkout-button').click()
 
-        ProdutoPage.completaFaturamento(nomeFaker, sobreFaker, 'EBAC', 'Av.Brasil', '200', 'São Paulo', 'São Paulo', '12345678', '11 1 1111-1111', emailFaker) 
+        checkoutPage.completaFaturamento(nomeFaker, sobreFaker, 'EBAC', 'Av.Brasil', '200', 'São Paulo', 'São Paulo', '12345678', '11 1 1111-1111', emailFaker) 
 
         cy.get('#terms').click()
         cy.get('#place_order').click()
